@@ -53,12 +53,12 @@
                 </div>
 
                         <p class="text-muted">In this project I firstly extracted all the data from the RateYourMusic.com Website. RateYourMusic is a large database in which users are able to insert musical records as entries and to label them accordingly, for instance setting the musical genres, a range of descriptors and so on. Starting from an unstructured dataset has many advantages. First of all, we can exploit a larger amount of data that has been gathered, organized and labeled throughtout many years by the userbase of the website. Secondary, it potentially allows to exploit other interesting info that are not usually available in likned dataset such as DBpedia or Wikidate, for instance the pondarate average rating that is given from users. This could lead to a system which not only automatically predic the genres, descriptors and features of an album records, but also the probability of its likeness</p>
+<img src="assets/img/rymalbum.png" class="img-fluid">
+                        <p>Then a simple and small ontology was developed using Protegé as a software. The ontology links an album record with its main properties, namely the artist that made the record, its main genre, its secondary genre, some descriptors and so on. Moreover, since one of the goals was to allign the dataset with Wikidata, the artist subclasses was subdivded in two different classes, i.e. humans (songwriters, performers, musicians, etc.) and musical groups. Those subclasses have properties as well, such as a birthplace for humans, a list of members for bands and so on. The list of properties for artists was completely arbitrary and it can be extended any time. You can download the Protegé file 	<a href="data/RymOntology.owl" download="">here</a>.</p>
+                        <p>Here you can see an example extracted from the graph using the Turtle syntax:</p>
+                        <img src="assets/img/turtle.jpg" class="img-fluid">
 
-                        <p>The data were extracted from the charts using a JavaScript application developed by <a href="https://github.com/simonedeldeo" target="blank">Simone del Deo</a> which converts them into a raw .csv file.</p>
-
-                        <p class="text-muted">In order to create a dataset semantically meaningful, some basic cleaning was requried. Pandas was used to eliminate duplicates, excluding useless columns and linking each entry with the realted Wikidata entry (cf. the code section). The final .csv table contained more then 22K entries, which were then linked as a RDF file using the Turtle syntax. The final Turtle files contained more than 200K relations, linking records with their descriptor and the related artists with (some of) their Wikidata properties. </p>
- 
-                        <p class="text-muted">Once the linked dataset was built, it became possible to do some interesting operations on it. I used Pykeen as a library to obtain accurate link prediction. This allows to obtain interesting prediction regarding many aspect of musical records, for instance asking for the main genre of an album or guessing the members of a certain band.</p>
+             
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
         <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
+                    <h2 class="section-heading text-uppercase">The steps</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
                 <ul class="timeline">
@@ -76,50 +76,42 @@
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
+                                <h4>Gather raw data</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted"><p>The data were extracted from the charts using a JavaScript application developed by <a href="https://github.com/simonedeldeo" target="blank">Simone del Deo</a> which converts them into a raw <a href="data/raw_dataset.csv" download="">.csv file</a>.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                                <h4>Clean the data and link them to Wikidata</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">In order to create a dataset semantically meaningful, some basic cleaning was requried. Pandas was used to eliminate duplicates, excluding useless columns and linking each entry with the realted Wikidata entry. </p></div>
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>Create a Turtle file</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">The final .csv table contained more then 22K entries, which were then linked as a RDF file using the Turtle syntax. The final <a href="data/final_graph.ttl" download="">Turtle file</a> contained more than 200K relations, linking records with their descriptor and the related artists with (some of) their Wikidata properties. </p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
+                                <h4>Graph Embedding</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                            <div class="timeline-body"><p class="text-muted">Once the linked dataset was built, it became possible to do some interesting operations on it. Pykeen was used as a library to create a graph embedding of the dataset. In order to exploit the Pykeen functionalities, the graph was converted into a <a href="data/final_dataset.tsv" download="">tabular file</a>, each row representing a triple. This allowed to perform many significant operations on the data, such as link predicition and sentimental analysis.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
+                            	Play with the data!
                             </h4>
                         </div>
                     </li>
@@ -131,8 +123,8 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Some results</h2>
+                    <h3 class="section-subheading text-muted">Here we can explore a selection of the results.</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -142,11 +134,11 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/okcomputer.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">OK Computer</div>
+                                <div class="portfolio-caption-subheading text-muted">Radiohead, 1997</div>
                             </div>
                         </div>
                     </div>
@@ -157,11 +149,11 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
+                                <img class="img-fluid" src="assets/img/loveless.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading">Loveless</div>
+                                <div class="portfolio-caption-subheading text-muted">My Bloody Valentine, 1991</div>
                             </div>
                         </div>
                     </div>
@@ -364,23 +356,19 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Threads
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Illustration
-                                        </li>
+                                    <h2 class="text-uppercase">OK Computer</h2>
+                                    <p class="item-intro text-muted">Radiohead, 1997.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/okcomputer.jpg" alt="..." />
+                                    <p>Predicted artists: Ween, The Fall, Butthole-Surfers, Robyn Hitchcock, The Flaming Lips, Simple Minds, Sparks, Moses Sumney, Porcupine Tree, <strong>Radiohead</strong>, Magazine, , XCT, Netktar, Jay Munly</p>
+                                    <p>Predicted man genre: Post-Punk, <strong>Art-Rock</strong>, Art-Punk, Experimental Rock, Gothic Rock, Neo-Psichedelia, Noise-ROck, New_Wave, Rock Opera, Industrial Rock, Grunge, Lo-Fi/Slacker Rock, Dance-Punk, <strong>Alternative rock</strong></p>
+                                    <p>Predicted secondary genres: Experimental Rock, Post-Punk, Art-Rock, Gothic Rock, Art-Punk, Noise-Rock, Neo-Psichedelia, Dark Cabaret, Rock Opera, New Wave, Industrial Rock, Stoner ROck, Krautrock, Lo-Fi/Slacker Rock, Zolo</p>
+                                    <p>Predicted descriptors: philosophical, <strong>anxious</strong>, <strong>alienation</strong>, suicide, psychedelic, existential, apathetic, depressiv, pessimistc, lo-fi, raw, malevocals, sombre, self-hatred, energetic, ecletic, death, concept album, cryptic</p>
+                                    <p>Predicted publication date:May 2006, August 1997, October 2002, November 1997, June 2019, November 1981, August 1995, June 1994</p>
+
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-times me-1"></i>
-                                        Close Project
+                                        Close
                                     </button>
                                 </div>
                             </div>
@@ -399,10 +387,15 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <h2 class="text-uppercase">Loveless</h2>
+                                    <p class="item-intro text-muted">My Bloody Valentine, 1991</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/loveless.jpg" alt="..." />
+                                    <p>Predicted artist: Beach Huse, The Triffilds, Sweet Trip, Yo La Tengo, Arcade Fire, Built to Spill, Hum, The National, Kero Kero Bonito, Other Lives, Mew, Supertramp, The Verve</p>
+                                    <p>Predicted main genre: <strong>Noise Pop</strong>, Midwest Emo, Dream-Pop, Indietronica, Indie-rock, Indie-Pop, <strong>Shoegaze</strong>, Post-Punk Revival, Lo-Fi/Slacker Rock, Neo Psichedelia, Emo, Synthpop, Baggy-Madche, Alternative Rock, Brippop</p>
+                                    <p>Predicted secondary genres: <strong>Dream Pop</strong>, Noise-Pop, Midwest Emo, Shoegaze, Indietronica, Indie Rock, Neo Psychedelia, Ethereal Wave, Lo-Fi/Slacker Rock, Indie Pop, Darkwave, Slowcore, Synthpop, Alternative Rock, Post-Punk Revival</p>
+                                    <p>Predicted descriptors: sad, apathetic, existential, poetic, melancholic, lonely, depressive, anxious, psychedelic, ecletic, bittersweet, introspective, quirky, <strong>wall of sound</strong></p>
+                                    <p>Predicted dates: April 1998, Hanuary 2015, January 2011, March 1996, June 2003, March 2020, June 1999, October 1990, <strong>November 1991</strong>, October 2002</p>
+
                                     <ul class="list-inline">
                                         <li>
                                             <strong>Client:</strong>

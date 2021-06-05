@@ -10957,7 +10957,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("../assets/img/cover.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11134,10 +11134,10 @@ header.masthead .masthead-heading {
   height: 80px;
   margin-left: 0;
   text-align: center;
-  color: white;
+  color: #ffbd11;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #ffc800;
+  background-color: white;
 }
 .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
   font-size: 10px;
@@ -11328,5 +11328,76 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 
 .hits {
-color:blue;
+color: #179d17;
+    font-weight: 900;
+}
+
+.Positive {
+  color: green;
+}
+
+.Neutral {
+  color: blue;
+}
+
+.Negative {
+  color: red;
+}
+
+
+#OKPC{
+    height:20px;
+    width: 500px;
+    background: linear-gradient(to right, green 10%, blue 30%, red 60%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+
+#Loveless{
+    height:20px;
+    width: 500px;
+    background: linear-gradient(to right, blue 40%, red 60%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+
+#Adz{
+    height:20px;
+    width: 500px;
+    background: linear-gradient(to right, green 20%, blue 30%, red 50%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+#Loops{
+    height:20px;
+    width: 500px;
+    background: linear-gradient(to right, green 20%, blue 60%, red 20%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+#Oil{
+    height:20px;
+    width: 500px;
+    background: linear-gradient(to right, blue 60%, red 40%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+
+#Banco{
+    height:20px;
+    width: 500px;
+    background: linear-gradient(to right, blue 80%, red 20%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
 }

@@ -28,8 +28,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#project">The project</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Results</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
@@ -125,8 +125,57 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Some results</h2>
                     <h3 class="section-subheading text-muted">Here we can explore a selection of the results.</h3>
+                    <p><strong>Bolded</strong> terms were in training, <span class="hits">blue terms</span> are hits.</p>
                 </div>
                 <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal7">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/loops.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">The Disintegration Loops</div>
+                                <div class="portfolio-caption-subheading text-muted">William Basinski, 2002</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal8">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/oil.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Oil on Every Perl's Up-Insides</div>
+                                <div class="portfolio-caption-subheading text-muted">SOPHIE, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal9">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/okcomputer.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">OK Computer</div>
+                                <div class="portfolio-caption-subheading text-muted">Radiohead, 1997</div>
+                            </div>
+                        </div>
+                    </div>                    
+
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
@@ -217,6 +266,10 @@
                             </div>
                         </div>
                     </div>
+
+
+
+
                 </div>
             </div>
         </section>
@@ -360,10 +413,10 @@
                                     <p class="item-intro text-muted">Radiohead, 1997.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/okcomputer.jpg" alt="..." />
                                     <p>Predicted artists: Ween, The Fall, Butthole-Surfers, Robyn Hitchcock, The Flaming Lips, Simple Minds, Sparks, Moses Sumney, Porcupine Tree, <strong>Radiohead</strong>, Magazine, , XCT, Netktar, Jay Munly</p>
-                                    <p>Predicted man genre: Post-Punk, <strong>Art-Rock</strong>, Art-Punk, Experimental Rock, Gothic Rock, Neo-Psichedelia, Noise-ROck, New_Wave, Rock Opera, Industrial Rock, Grunge, Lo-Fi/Slacker Rock, Dance-Punk, <strong>Alternative rock</strong></p>
+                                    <p>Predicted man genre: Post-Punk, <strong>Art-Rock</strong>, Art-Punk, Experimental Rock, Gothic Rock, Neo-Psichedelia, Noise-Rock, New Wave, Rock Opera, Industrial Rock, Grunge, Lo-Fi/Slacker Rock, Dance-Punk, <strong>Alternative rock</strong></p>
                                     <p>Predicted secondary genres: Experimental Rock, Post-Punk, Art-Rock, Gothic Rock, Art-Punk, Noise-Rock, Neo-Psichedelia, Dark Cabaret, Rock Opera, New Wave, Industrial Rock, Stoner ROck, Krautrock, Lo-Fi/Slacker Rock, Zolo</p>
-                                    <p>Predicted descriptors: philosophical, <strong>anxious</strong>, <strong>alienation</strong>, suicide, psychedelic, existential, apathetic, depressiv, pessimistc, lo-fi, raw, malevocals, sombre, self-hatred, energetic, ecletic, death, concept album, cryptic</p>
-                                    <p>Predicted publication date:May 2006, August 1997, October 2002, November 1997, June 2019, November 1981, August 1995, June 1994</p>
+                                    <p>Predicted descriptors: philosophical, <strong>anxious</strong>, <strong>alienation</strong>, suicide, psychedelic, <span class="hits">existential</span>, apathetic, <span class="hits">depressive</span>, <span class="hits">pessimistic</span>, lo-fi, raw, <span class="hits">male vocals</span>, sombre, self-hatred, energetic, ecletic, death, concept album, cryptic</p>
+                                    <p>Predicted publication date:May 2006, August <span class="hits">1997</span>, October 2002, November<span class="hits"><1997</span>, June 2019, November 1981, August 1995, June 1994</p>
 
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
@@ -393,7 +446,7 @@
                                     <p>Predicted artist: Beach Huse, The Triffilds, Sweet Trip, Yo La Tengo, Arcade Fire, Built to Spill, Hum, The National, Kero Kero Bonito, Other Lives, Mew, Supertramp, The Verve</p>
                                     <p>Predicted main genre: <strong>Noise Pop</strong>, Midwest Emo, Dream-Pop, Indietronica, Indie-rock, Indie-Pop, <strong>Shoegaze</strong>, Post-Punk Revival, Lo-Fi/Slacker Rock, Neo Psichedelia, Emo, Synthpop, Baggy-Madche, Alternative Rock, Brippop</p>
                                     <p>Predicted secondary genres: <strong>Dream Pop</strong>, Noise-Pop, Midwest Emo, Shoegaze, Indietronica, Indie Rock, Neo Psychedelia, Ethereal Wave, Lo-Fi/Slacker Rock, Indie Pop, Darkwave, Slowcore, Synthpop, Alternative Rock, Post-Punk Revival</p>
-                                    <p>Predicted descriptors: sad, apathetic, existential, poetic, melancholic, lonely, depressive, anxious, psychedelic, ecletic, bittersweet, introspective, quirky, <strong>wall of sound</strong></p>
+                                    <p>Predicted descriptors: sad, apathetic, existential, poetic, <span class="hits">melancholic</span>, lonely, depressive, anxious, <span class="hits">psychedelic</span>, ecletic, <span class="hits">bittersweet</span>, introspective, quirky, <strong>wall of sound</strong></p>
                                     <p>Predicted dates: April 1998, Hanuary 2015, January 2011, March 1996, June 2003, March 2020, June 1999, October 1990, <strong>November 1991</strong>, October 2002</p>
 
                                     <ul class="list-inline">
@@ -431,10 +484,10 @@
                                     <p class="item-intro text-muted">Sufjan Stevens, 2008</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/adz.jpg" alt="..." />
                                     <p>Predicted artist: Smog, Mitski, Jeff Rosenstock, Stereolab, Emmylous harris, DJ Sabrina, The Magnetic Field, Open Mike Eagle, Toe, Bonnie Prince, John Maus, Jason Isbelle, Unknown, King Gizzard and the Lizard Wizard</p>
-                                    <p>Predicted main genres: Art Pop, <strong>Progressive Pop</strong>, Dark Cabaret, Gothic Country, Acoustic Rock, Indie Folk, Chamber Pop, Liedemancher, new Wave, Art Rock, Piano Rock, Glam Rock, Neo Psychedelia</p>
+                                    <p>Predicted main genres: <span class="hits"> Art Pop</span>, <strong>Progressive Pop</strong>, Dark Cabaret, Gothic Country, Acoustic Rock, Indie Folk, Chamber Pop, Liedemancher, new Wave, Art Rock, Piano Rock, Glam Rock, Neo Psychedelia</p>
                                     <p>Predicted secondary genres: Art Pop, Dark Cabaret, Gothic Country, Trip Hop, <strong>Chamber pop</strong>, Art Rock, Ledemacher, Indie Folk, Acoustic Rock, Ambient Pop, New Wave, Freak Folk, Neo Psychedelia</p>
-                                    <p>Predicted descriptors: sad, lonely, poetic, melancholic, bittersweet, melodic, ecletic, <strong>introspective</strong>, nocturnal, playful, existential, quirky, protest,<strong>anxious</strong>, longing</p>
-                                    <p>March 1988, October 2003, Febrary 1996, August 2016, May 2012, November 1983</p>
+                                    <p>Predicted descriptors: sad, lonely, poetic, <span class="hits">melancholic</span>, <span class="hits">bittersweet</span>, melodic, <span class="hits">ecletic</span>, <strong>introspective</strong>, nocturnal, playful, <span class="hits">existential</span>, quirky, protest, <strong>anxious</strong>, longing</p>
+                                    <p>1988, 2003, 1996, 2016, 2012, 1983</p>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-times me-1"></i>
                                         Close Project
@@ -457,13 +510,13 @@
                                 <div class="modal-body">
                                     <!-- Project details-->
                                     <h2 class="text-uppercase">Miles Davis</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <p class="item-intro text-muted">Jazz musician</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/milesdavis.jpg" alt="..." />
                                     <p>Predicted instance of artist: <strong>human</strong>, married couple, jam band, France, United Kingodm</p>
                                     <p>Predicted sex or gender: <strong>male</strong>, female, gendergluid, non-binary, male organism</p>
-                                    <p>Predicted origins: human, Malasya, Jamaica, United Kingdom, France, Switzerland, United States, Brazil, Japan, Span, Belgium</p>
+                                    <p>Predicted origins: human, Malasya, Jamaica, United Kingdom, France, Switzerland, <span class="hits">United States</span>, Brazil, Japan, Span, Belgium</p>
                                     <p>Predicted instruments: percussion, <strong>organ</strong>, saxophone, tenor-saxophone, jazz-piano, bass, guitar, clarinet, singing, hammond organ, bartione saxophone, <strong>trumpet</strong>, piano</p>
-                                    <p>Predicted occupation: trumpeter, <strong>jazz musician</strong>, saxophonist, orchestrator, <strong>composer</strong>, dramaturge, poet, guitarist, conductor, harppsichordist, inventor, <strong>bandleader</strong>, jazz singer, keyboardist, <strong>autobiographer</strong></p>
+                                    <p>Predicted occupation: trumpeter, <strong>jazz musician</strong>, saxophonist, orchestrator, <strong>composer</strong>, dramaturge, poet, guitarist, <span class="hits">conductor</span>, harppsichordist, inventor, <strong>bandleader</strong>, jazz singer, keyboardist, <strong>autobiographer</strong></p>
                                     <p>Predicted influences: Miles Davis, John Coltrane, Louis Armstrong, Nina Simone, Geroge Micheal, Buster Smith, Sun Ra, Ella Fitzgerald, Chet Baker</p>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-times me-1"></i>
@@ -487,13 +540,13 @@
                                 <div class="modal-body">
                                     <!-- Project details-->
                                     <h2 class="text-uppercase">Frank Ocean</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <p class="item-intro text-muted">Musician</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/frankocean.jpg" alt="..." />
                                     <p>Predicted type of artist: United States, <strong>human</strong>, Canada, Mexico, supergroup, married couple</p>
                                     <p>Predicted sex or gender: <strong>male</strong>, female, genderfluid, male organism</p>
-                                    <p>Predicted origins: human, UNited Stantes, United Kingomd, Canada, Switzerland, Mexico, France, malysia, Chile, Ireland</p>
+                                    <p>Predicted origins: human,<span class="hits"> United States</span>, United Kingomd, Canada, Switzerland, Mexico, France, malysia, Chile, Ireland</p>
                                     <p>Predcited instruments: synthesizer, bass guitar, acoustic guitar, sampler, guitar, phonograph, electric guitar, drum machine, <strong>voice</strong>, drum kit, singing, piano, ukulele</p>
-                                    <p>Predicted occupations: skateboarder, music producer, <strong>blogger</strong>, drummer, record produicer, YouTuber, <strong>singer</strong>, banjoist, club DJ, <strong>rapper</strong>, television artist, entrepreneur, <strong>composer</strong>, fashojn designer </p>
+                                    <p>Predicted occupations: skateboarder, music producer, <strong>blogger</strong>, drummer, record producer, YouTuber, <strong>singer</strong>, banjoist, club DJ, <strong>rapper</strong>, television artist, entrepreneur, <strong>composer</strong>, fashion designer </p>
                                     <p>Predicted influence: Ed Sheeran, Frank Ocean, Kali Uchis, Laura Nyro, Usher, Randy Newman, Bob Dylan, Tupac Shakur, Leonard Choen, Fiona Apple, Sufjan Stevens</p>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-times me-1"></i>
@@ -519,10 +572,67 @@
                                     <h2 class="text-uppercase">Arcade Fire</h2>
                                     <p class="item-intro text-muted">Band</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/Arcade fire.jpg" alt="..." />
-                                    <p>Predicted artist type: rock group, musicla group, musical enseamble, heavi metal group, supergroup, musical duo, solo porject, duo, Sweden, virtual band</p>
+                                    <p>Predicted artist type: rock group, <span class="hits">musical group</span>, musical enseamble, heavi metal group, supergroup, musical duo, solo porject, duo, Sweden, virtual band</p>
                                     <p>Predcited origins: United States, <strong>Canada</strong>, Sweeden, Switzerland, United Kingom, Germany, France, Mexico</p>
                                     <p>Predicted band members: Ralf Youtz, Arthur Rizck, Jon Auer, Melanie Howard, Stefan babcock, Bryce Dessner, Alex Carapetis, Bryan Devendorf, Aaron Aedy</p>
                                     <p>Predicted influneces: Arcade Fire, The Decemberist, XTC, WIlco, Son Volt, Spoon, Phoebe Bridgers, Anathema, Big Thief, Built to Spill, Big Star, The Triffids, Calexico, Rush</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-times me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">The Disintegration Loops</h2>
+                                    <p class="item-intro text-muted">William Basinski, 2002</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/loops.jpg" alt="..." />
+                                    <p>Predicted artist: The Necks, Mica Levi, Steve Reich, Stars of the [...], Autechre, Coil, Popol Vuh, Richard Jacques, Boards of Canada, Hijokaidan, Pan Sonic</p>
+                                    <p>Predicted main genres: Field Recording, Nature Recording, Musique Concrete, Electroacoustic, Ambient, Dark Ambient, Drone, Tribal Ambient, <strong>Tape Music</strong>, Experimental, Space Ambient </p>
+                                    <p>Predicted secondary genres: Electrouacustic, Musique concrete, Field Recording, Tribal Ambient, Ambient, Progressive Electronic, Dark Ambient, <strong>Drone</strong>, Minimalism, Tape Music, Horror Synth</p>
+                                    <p>Predicted descriptors: meditative, suspenseful, <strong>minimalistic</strong>, atonal, sterious, dissonant, <strong>atmospheric</strong>, <strong>sparse</strong>, avant-garde, scary, tribal, <strong>repetitive</strong>, hypnotic, acquatic, microtonal</p>
+                                    <p>Predicted publication date: 2020, 2014, <strong>2002</strong>, 2010, 1995, 2003, 2007, 1999, 2011</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-times me-1"></i>
+                                        Close Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Oil on Every Pearl's Up-Insides</h2>
+                                    <p class="item-intro text-muted">SOPHIE, 2018</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/oil.jpg" alt="..." />
+                                    <p>Predicted artist: clipping, <strong>SOPHIE</strong>, DJ Sabrina, Autechre, Aere Gros M, Nanoray, Devon Hendryx, Nine Inch Nails, Kashiwa Daisuke, The Caretaker, Death Grips, Mare Cognitum, Boards of Canada, Coil, Oneohtrix Point Ever, Robert Rich</p>
+                                    <p>Predicted main genres: Wonky, UK-Bass, Techno, Illbient, Drum and Bass, Synthwave, Breakbeat, <strong>Bubblegum Bass</strong>, Electronic Dance, <strong>Deconstructed Club</strong>, IDM, Outsider House, Trip Hop, Tech House </p>
+                                    <p>Predicted secondary genres: Techno, Breakbeat, IDM, Drum and Bass, <strong>Wonky</strong>, Illbient, Synthwave, UK Bass, Trip Hop, Acid Techno, Downtempo, Electronic Dance, , Post Industrial, Atmospheric Electronic, Electronic</p>
+                                    <p>Predicted descriptors: repetitive, futuristic, abstract, nocturnal, <strong>mechanical</strong>, androgunoys vocals, minimalistic, atmospheric, anxious, ecletic, lo-fi, sampling, <strong>LGBT</strong>, disturbing</p>
+                                    <p>Predicted publication date: 2021, 2021, 2019, 1998, 2020, 1988, 2015, 2018, 2000</p>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-times me-1"></i>
                                         Close Project

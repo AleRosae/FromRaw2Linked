@@ -39,8 +39,8 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">From Raw 2 Linked!</div>
-                <div class="masthead-heading text-uppercase">Graph embedding and link prediction from an unstructured dataset</div>
+                <div class="masthead-heading text-uppercase">From Raw 2 Linked</div>
+                <div class="masthead-subheading">Graph embedding and link prediction from a non-linked musical dataset</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#project">Go to the project</a>
             </div>
         </header>
@@ -51,14 +51,15 @@
                     <h2 class="section-heading text-uppercase">The project</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
-
-                        <p class="text-muted">In this project I firstly extracted all the data from the RateYourMusic.com Website. RateYourMusic is a large database in which users are able to insert musical records as entries and to label them accordingly, for instance setting the musical genres, a range of descriptors and so on. Starting from an unstructured dataset has many advantages. First of all, we can exploit a larger amount of data that has been gathered, organized and labeled throughtout many years by the userbase of the website. Secondary, it potentially allows to exploit other interesting info that are not usually available in likned dataset such as DBpedia or Wikidate, for instance the pondarate average rating that is given from users. This could lead to a system which not only automatically predic the genres, descriptors and features of an album records, but also the probability of its likeness</p>
-<img src="assets/img/rymalbum.png" class="img-fluid">
-                        <p>Then a simple and small ontology was developed using Protegé as a software. The ontology links an album record with its main properties, namely the artist that made the record, its main genre, its secondary genre, some descriptors and so on. Moreover, since one of the goals was to allign the dataset with Wikidata, the artist subclasses was subdivded in two different classes, i.e. humans (songwriters, performers, musicians, etc.) and musical groups. Those subclasses have properties as well, such as a birthplace for humans, a list of members for bands and so on. The list of properties for artists was completely arbitrary and it can be extended any time. You can download the Protegé file 	<a href="data/RymOntology.owl" download="">here</a>.</p>
-                        <p>Here you can see an example extracted from the graph using the Turtle syntax:</p>
+                        <p class="text-muted">The aim of this project is to make some experiment with graph embedding and link prediction starting from a raw dataset not yet semantically meaningful. It was developed as a final examination for the <a href="https://www.unibo.it/it/didattica/insegnamenti/insegnamento/2020/454463" target="blank">Knowledge Representation and Extraction</a> course of the Digital Humanities and Digital Knowledge master Degree at the University of Bologna held by professor Aldo Gangemi and Andrea Nuzzolese. The goal is to show that it is possible and fairly easy to transform non-linked data in a linked form, and that allows for many interesting options. DBpedia and Wikidata already offer a wide amount of entities related to music, but their properties are often very limited for all the musical records that are not much popular. Using a much more wide dataset, which is more specialized in musicla records, allow to make more interesting and accurate predictions. In the field of musical recors, this could lead to a system which not only automatically predic the genres, descriptors and features of an album records, but also the probability of its likeness, taking into account the average scores given by the user. </p>
+                        <p class="text-muted">In order to accomplish such task, the first step necessary was to gather a raw dataset that could be formalized in a set of triples. I decided to work with a musical dataset regarding records and artists, so I extracted raw data from the <a href="https://rateyourmusic.com/">RateYourMusic.com</a> Website. RateYourMusic is a large musical database in which users are able to autonomusly enter musical records and to label them according to various properties, such as its artist, the its publication date, the musical genres, a range of descriptors and so on. For the purposes of this project, about 22000 musical records were extracted, ranging from the most popular to the lesser ones. </p>
+                        <img src="assets/img/rymalbum.png" class="img-fluid">
+                        <p class="text-muted">Then a simple and small ontology was developed using Protegé as a software. The ontology links an album record with its main properties, namely the artist that made the record, its main genre, its secondary genre, some descriptors and so on. Moreover, since one of the goals was to allign the dataset with Wikidata, the artist subclasses was subdivded in two different classes, i.e. humans (songwriters, performers, musicians, etc.) and musical groups. Those subclasses have properties as well, such as a birthplace for humans, a list of members for bands and so on. The list of properties for artists was completely arbitrary and it can be extended any time. You can download the Protegé file <a href="data/RymOntology.owl" download="">here</a>.</p>
+                        <p class="text-muted">From a coding point of view, Python was used in order to exploit the vast amount of libreries avaiable for handle data. Pandas was used to giving a first look at the data, cleaning a bit, eliminating duplicates and getting rid of some unecessary properties. It was also important to allign the entries with the already existing entries of a linked open datataset, such as DBPedia or Wikidata. Thus, it was developed a set of functions that are able to automatically extract information about a specific entetity (using a SPARQL query) and put them in the main dataset. Once the dataset was alligned (in this case with Wikidata, it became possible to serialize in subject-predicate-object triples. Using an RDF library, it became possible to create a set of triples that linked every musical entity with its properties. Here you can see an example extracted from the graph using the Turtle syntax:</p>
                         <img src="assets/img/turtle.jpg" class="img-fluid">
+                        <p class="text-muted">With the Turtle file, it became possible to make some experiment with graph embedding. For this task, two Python libreries were individuated:<a href="https://pykeen.readthedocs.io/en/stable/" target="blank">Pykeen</a> and <a href="http://rdf2vec.org/" target="blank">RDF2Vec</a>. However, after an initial phase of testing, RDF2Vec was discarded due to the the difficulties related to set a proper work enviroment. Moreover, Pykeen offers a built in function for link prediction, thus being much easier to set up for whom do not have prior knowledge in machine learning. For the training phase the dataset was automatically splitted in two (with a 80/20 proportion) and fed to the pipeline function without changing any of the default settings (except with the epoche numbers, which was set at 1500). You can download the results of the traning <a href="data/pykeen result/results.json" download="">here</a>.</p>
+                        <p>All the data, including code and the trained model, can be found at the <a href="https://github.com/AleRosae/FromRaw2Linked" target="blank"> GitHub repository</a>.</p>
 
-             
                     </div>
                 </div>
             </div>
@@ -69,7 +70,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">The steps</h2>
-                    <h3 class="section-subheading text-muted">The complete Pythn code can be explored at the <a href="https://colab.research.google.com/drive/16alV072rYFLUmogZm9mvzBrjjTiPZRKb?usp=sharing" >Colab</a> repository.</h3>
+                    <h3 class="section-subheading text-muted">The complete Python code can be explored at the <a href="https://colab.research.google.com/drive/16alV072rYFLUmogZm9mvzBrjjTiPZRKb?usp=sharing" >Colab</a> repository.</h3>
                 </div>
                 <ul class="timeline">
                     <li>
@@ -111,7 +112,7 @@
                     <li class="timeline-inverted">
                         <div class="timeline-image">
                             <h4>
-                            	Play with the data!
+                            	Explore the results!
                             </h4>
                         </div>
                     </li>
@@ -277,7 +278,7 @@
         <section class="page-section" id="conclusions">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Conclusion and further developments</h2>
+                    <h2 class="section-heading text-uppercase">Conclusions and further developments</h2>
                 </div>
 
                         <p class="text-muted">The aim of the present project was to extract raw data and transform them in proper knowledge. Thanks to graph embedding it is possible to exploit this knowledge to gather new knowledge through machine learning algorithms tecniques. The current dataset seems to behaeve well for most of the link predictions tasks. Indeed, there are clear differences between the different kind of predictions: for istance, the artist property was much harder to predict than the others. However, for what it concerns the genres and descriptors, the system performs actually pretty well and it is able to make significul predictions. It is also interesting to notice that even when the guessed were wrongs, usually there were pretty close to the actual guess. The system predicted artists that share something with the real record's artist, being that for origins, influences or musical genres. For what it concerns the properties inherited from Wikidata, the system seems pretty reliable as well: it always able to distinguish between the kind of artist (i.e. whether it is a single human being or a band) and to predict some of their properties.</p>
@@ -311,9 +312,9 @@
                             <img class="mx-auto rounded-circle" src="assets/img/ale.jpg" alt="..." />
                             <h4>Alessandro Rosa</h4>
                             <p class="text-muted">DHDK student</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/AleRosae" target="blank"><i class="fab fa-github"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/AleRosae/" target="blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alessandro-rosa-99a43a1aa/" target="blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4" style="display: none">
@@ -321,9 +322,8 @@
                             <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
                             <h4>Larry Parker</h4>
                             <p class="text-muted">Lead Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/AleRosae/" target="blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alessandro-rosa-99a43a1aa/" target="blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -338,22 +338,16 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">
-                        Copyright &copy; Your Website
+                        HTML Template: <a href="https://startbootstrap.com/theme/agency" target="blank" >Start Bootstrap</a>
+<br>
+                        Copyright &copy; Alessandro Rosa
                         <!-- This script automatically adds the current year to your website footer-->
                         <!-- (credit: https://updateyourfooter.com/)-->
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
                     </div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
+
                 </div>
             </div>
         </footer>
@@ -371,11 +365,11 @@
                                     <h2 class="text-uppercase">OK Computer</h2>
                                     <p class="item-intro text-muted">Radiohead, 1997.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/okcomputer.jpg" alt="..." />
-                                    <p>Predicted artists: Ween, The Fall, Butthole-Surfers, Robyn Hitchcock, The Flaming Lips, Simple Minds, Sparks, Moses Sumney, Porcupine Tree, <strong>Radiohead</strong>, Magazine, , XCT, Netktar, Jay Munly</p>
-                                    <p>Predicted man genre: Post-Punk, <strong>Art-Rock</strong>, Art-Punk, Experimental Rock, Gothic Rock, Neo-Psichedelia, Noise-Rock, New Wave, Rock Opera, Industrial Rock, Grunge, Lo-Fi/Slacker Rock, Dance-Punk, <strong>Alternative rock</strong></p>
-                                    <p>Predicted secondary genres: Experimental Rock, Post-Punk, <span class="hits">Art-Rock</span>, Gothic Rock, Art-Punk, Noise-Rock, Neo-Psichedelia, Dark Cabaret, Rock Opera, New Wave, Industrial Rock, Stoner Rock, Krautrock, Lo-Fi/Slacker Rock, Zolo</p>
+                                    <p>Predicted artists: Ween, The Fall, Butthole Surfers, Robyn Hitchcock, The Flaming Lips, Simple Minds, Sparks, Moses Sumney, Porcupine Tree, <strong>Radiohead</strong>, Magazine, XCT, Netktar, Jay Munly</p>
+                                    <p>Predicted man genre: Post-Punk, <strong>Art-Rock</strong>, Art-Punk, Experimental Rock, Gothic Rock, Neo-Psychedelia, Noise-Rock, New Wave, Rock Opera, Industrial Rock, Grunge, Lo-Fi/Slacker Rock, Dance-Punk, <strong>Alternative rock</strong></p>
+                                    <p>Predicted secondary genres: Experimental Rock, Post-Punk, <span class="hits">Art-Rock</span>, Gothic Rock, Art-Punk, Noise-Rock, Neo-Psychedelia, Dark Cabaret, Rock Opera, New Wave, Industrial Rock, Stoner Rock, Krautrock, Lo-Fi/Slacker Rock, Zolo</p>
                                     <p>Predicted descriptors: philosophical, <strong>anxious</strong>, <strong>alienation</strong>, suicide, psychedelic, <span class="hits">existential</span>, apathetic, <span class="hits">depressive</span>, <span class="hits">pessimistic</span>, lo-fi, raw, <span class="hits">male vocals</span>, sombre, self-hatred, energetic, ecletic, death, concept album, cryptic</p>
-                                    <p>Predicted publication date:2006, <span class="hits">1997</span>, 2002, 2019, 1981, 1995, 1994</p>
+                                    <p>Predicted publication date: 2006, <span class="hits">1997</span>, 2002, 2019, 1981, 1995, 1994</p>
                                     <p>Sentimental analysys scores:</p>
                                     <p><span class="Positive">Positive (10%)</span>, <span class="Neutral">Neutral (30%)</span>, <span class="Negative">Negative (60%)</span></p>
                                     <div id="OKPC"></div>
@@ -406,10 +400,10 @@
                                     <p class="item-intro text-muted">My Bloody Valentine, 1991</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/loveless.jpg" alt="..." />
                                     <p>Predicted artist: Beach Huse, The Triffilds, Sweet Trip, Yo La Tengo, Arcade Fire, Built to Spill, Hum, The National, Kero Kero Bonito, Other Lives, Mew, Supertramp, The Verve</p>
-                                    <p>Predicted main genre: <strong>Noise Pop</strong>, Midwest Emo, <span class="hits">Dream-Pop</span>, Indietronica, Indie-rock, Indie-Pop, <strong>Shoegaze</strong>, Post-Punk Revival, Lo-Fi/Slacker Rock, Neo Psichedelia, Emo, Synthpop, Baggy-Madche, Alternative Rock, Brippop</p>
-                                    <p>Predicted secondary genres: <strong>Dream Pop</strong>, <span class="hits">Noise-Pop</span>, Midwest Emo, <span class="hits">Shoegaze</span>, Indietronica, Indie Rock, Neo Psychedelia, Ethereal Wave, Lo-Fi/Slacker Rock, Indie Pop, Darkwave, Slowcore, Synthpop, Alternative Rock, Post-Punk Revival</p>
+                                    <p>Predicted main genre: <strong>Noise Pop</strong>, Midwest Emo, <span class="hits">Dream-Pop</span>, Indietronica, Indie-rock, Indie-Pop, <strong>Shoegaze</strong>, Post-Punk Revival, Lo-Fi/Slacker Rock, Neo-Psychedelia, Emo, Synthpop, Baggy-Madchester, Alternative Rock, Britpop</p>
+                                    <p>Predicted secondary genres: <strong>Dream Pop</strong>, <span class="hits">Noise-Pop</span>, Midwest Emo, <span class="hits">Shoegaze</span>, Indietronica, Indie Rock, Neo-Psychedelia, Ethereal Wave, Lo-Fi/Slacker Rock, Indie Pop, Darkwave, Slowcore, Synthpop, Alternative Rock, Post-Punk Revival</p>
                                     <p>Predicted descriptors: sad, apathetic, existential, poetic, <span class="hits">melancholic</span>, lonely, depressive, anxious, <span class="hits">psychedelic</span>, ecletic, <span class="hits">bittersweet</span>, introspective, quirky, <strong>wall of sound</strong></p>
-                                    <p>Predicted dates: 1998, 2015, 2011, 1996, 2003, 2020, 1999, 1990, <strong>1991</strong>, 2002</p>
+                                    <p>Predicted publication date: 1998, 2015, 2011, 1996, 2003, 2020, 1999, 1990, <strong>1991</strong>, 2002</p>
                                     <p>Sentimental analysys scores:</p>
                                     <p><span class="Positive">Positive (0%)</span>, <span class="Neutral">Neutral (40%)</span>, <span class="Negative">Negative (60%)</span></p>
                                     <div id="Loveless"></div>                                   
@@ -438,11 +432,11 @@
                                     <h2 class="text-uppercase">The Age of Adz</h2>
                                     <p class="item-intro text-muted">Sufjan Stevens, 2010</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/adz.jpg" alt="..." />
-                                    <p>Predicted artist: Smog, Mitski, Jeff Rosenstock, Stereolab, Emmylous harris, DJ Sabrina, The Magnetic Field, Open Mike Eagle, Toe, Bonnie Prince, John Maus, Jason Isbelle, Unknown, King Gizzard and the Lizard Wizard</p>
+                                    <p>Predicted artist: Smog, Mitski, Jeff Rosenstock, Stereolab, Emmylou Harris, DJ Sabrina The Teenage DJ, The Magnetic Field, Open Mike Eagle, Toe, Bonnie Prince, John Maus, Jason Isbell, Unknown, King Gizzard and the Lizard Wizard</p>
                                     <p>Predicted main genres: <span class="hits"> Art Pop</span>, <strong>Progressive Pop</strong>, Dark Cabaret, Gothic Country, Acoustic Rock, Indie Folk, Chamber Pop, Liedemancher, new Wave, Art Rock, Piano Rock, Glam Rock, Neo Psychedelia</p>
                                     <p>Predicted secondary genres: <span class="hits">Art Pop</span>, Dark Cabaret, Gothic Country, Trip Hop, <strong>Chamber pop</strong>, Art Rock, Ledemacher, Indie Folk, Acoustic Rock, Ambient Pop, New Wave, Freak Folk, Neo Psychedelia</p>
                                     <p>Predicted descriptors: sad, lonely, poetic, <span class="hits">melancholic</span>, <span class="hits">bittersweet</span>, melodic, <span class="hits">ecletic</span>, <strong>introspective</strong>, nocturnal, playful, <span class="hits">existential</span>, quirky, protest, <strong>anxious</strong>, longing</p>
-                                    <p>1988, 2003, 1996, 2016, 2012, 1983</p>
+                                    <p>Predicted publication date: 1988, 2003, 1996, 2016, 2012, 1983</p>
                                     <p>Sentimental analysys scores:</p>
                                     <p><span class="Positive">Positive (20%)</span>, <span class="Neutral">Neutral (30%)</span>, <span class="Negative">Negative (50%)</span></p>
                                     <div id="Adz"></div>                                            
@@ -558,11 +552,11 @@
                                     <h2 class="text-uppercase">The Disintegration Loops</h2>
                                     <p class="item-intro text-muted">William Basinski, 2002</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/loops.jpg" alt="..." />
-                                    <p>Predicted artist: The Necks, Mica Levi, Steve Reich, Stars of the [...], Autechre, Coil, Popol Vuh, Richard Jacques, Boards of Canada, Hijokaidan, Pan Sonic</p>
+                                    <p>Predicted artist: The Necks, Mica Levi, Steve Reich, Stars of the Lid, Autechre, Coil, Popol Vuh, Richard Jacques, Boards of Canada, Hijokaidan, Pan Sonic</p>
                                     <p>Predicted main genres: Field Recording, Nature Recording, Musique Concrete, Electroacoustic, <span class="hits">Ambient</span>, Dark Ambient, Drone, Tribal Ambient, <strong>Tape Music</strong>, Experimental, Space Ambient </p>
                                     <p>Predicted secondary genres: Electrouacustic, Musique concrete, Field Recording, Tribal Ambient, Ambient, Progressive Electronic, Dark Ambient, <strong>Drone</strong>, <span class="hits">Minimalism</span>, Tape Music, Horror Synth</p>
                                     <p>Predicted descriptors: <span class="hits">meditative</span>, suspenseful, <strong>minimalistic</strong>, atonal, sterious, dissonant, <strong>atmospheric</strong>, <strong>sparse</strong>, <span class="hits">avant-garde</span>, scary, tribal, <strong>repetitive</strong>, <span class="hits">hypnotic</span>, acquatic, microtonal</p>
-                                    <p>Sentimental analysys scores:</p>
+                                    <p>Sentimental analisys scores:</p>
                                     <p><span class="Positive">Positive (20%)</span>, <span class="Neutral">Neutral (60%)</span>, <span class="Negative">Negative (20%)</span></p>
                                     <div id="Loops"></div>                                       
                                     <p>Predicted publication date: 2020, 2014, <strong>2002</strong>, 2010, 1995, 2003, 2007, 1999, 2011</p>
@@ -591,8 +585,8 @@
                                     <img class="img-fluid d-block mx-auto" src="assets/img/oil.jpg" alt="..." />
                                     <p>Predicted artist: clipping, <strong>SOPHIE</strong>, DJ Sabrina, Autechre, Aere Gros M, Nanoray, Devon Hendryx, Nine Inch Nails, Kashiwa Daisuke, The Caretaker, Death Grips, Mare Cognitum, Boards of Canada, Coil, Oneohtrix Point Ever, Robert Rich</p>
                                     <p>Predicted main genres: <span class="hits">Wonky</span>, UK-Bass, Techno, Illbient, Drum and Bass, Synthwave, Breakbeat, <strong>Bubblegum Bass</strong>, Electronic Dance, <strong>Deconstructed Club</strong>, IDM, Outsider House, Trip Hop, Tech House </p>
-                                    <p>Predicted secondary genres: Techno, Breakbeat, IDM, Drum and Bass, <strong>Wonky</strong>, Illbient, Synthwave, UK Bass, Trip Hop, Acid Techno, Downtempo, Electronic Dance, , Post Industrial, Atmospheric Electronic, Electronic</p>
-                                    <p>Predicted descriptors: repetitive, <span class="hits">futuristic</span>, <span class="hits">abstract</span>, nocturnal, <strong>mechanical</strong>, <span class="hits">androgunoys vocals</span>, minimalistic,<span class="hits"> atmospheric</span>, <span class="hits">anxious</span>, ecletic, lo-fi, sampling, <strong>LGBT</strong>, disturbing</p>
+                                    <p>Predicted secondary genres: Techno, Breakbeat, IDM, Drum and Bass, <strong>Wonky</strong>, Illbient, Synthwave, UK Bass, Trip Hop, Acid Techno, Downtempo, Electronic Dance, Post Industrial, Atmospheric Electronic, Electronic</p>
+                                    <p>Predicted descriptors: repetitive, <span class="hits">futuristic</span>, <span class="hits">abstract</span>, nocturnal, <strong>mechanical</strong>, <span class="hits">androgynous vocals</span>, minimalistic,<span class="hits"> atmospheric</span>, <span class="hits">anxious</span>, ecletic, lo-fi, sampling, <strong>LGBT</strong>, disturbing</p>
                                     <p>Predicted publication date: 2021, 2021, 2019, 1998, 2020, 1988, 2015, <span class="hits">2018</span>, 2000</p>
                                     <p>Sentimental analysys scores:</p>
                                     <p><span class="Positive">Positive (0%)</span>, <span class="Neutral">Neutral (60%)</span>, <span class="Negative">Negative (40%)</span></p>
@@ -622,9 +616,9 @@
                                     <p class="item-intro text-muted">Banco Del Mutuo Soccorso, 1972</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/banco.jpg" alt="..." />
                                     <p>Predicted artist: John Carpenter, Andrew Hill, Alice Coltrane, Paul Desmond, Horace, Parlan, Pharoah Sanders, Cowtools, Bobby Timmons, Spinetta, King Crimson, Ictus, T-Rex, King Gizzard and the Lizard Wizard</p>
-                                    <p>Predicted main genres: Freak Folk, Jam Band, Blues Rock, Canterbury S, Psychedelic Rock, <span class="hits">Progrssive Rock</span>, British Blues, Latin Rock, MPB, Jazz Rock, Acid Rock, heavy Psych, Forrò </p>
+                                    <p>Predicted main genres: Freak Folk, Jam Band, Blues Rock, Canterbury Scene, Psychedelic Rock, <span class="hits">Progrssive Rock</span>, British Blues, Latin Rock, MPB, Jazz Rock, Acid Rock, heavy Psych, Forrò </p>
                                     <p>Predicted secondary genres: Freak Folk, Jam Band, Canterbury S, <span class="hits">Progressive Rock</span>, Blues Rock, MPB, Tropicalia, Jazz Rock, Latin Rock, Poezja-śpiewana, Forrò, Acid Rock, Frevo </p>
-                                    <p>Predicted descriptors: psychedelic, philosophical, sombre, nature, occult, uncommon time signature, <strong>progressive</strong>, alienation, space, anxous, poetic, <span class="hits">complex</span>, medieval</p>
+                                    <p>Predicted descriptors: psychedelic, philosophical, sombre, nature, occult, uncommon time signatures, <strong>progressive</strong>, alienation, space, anxious, poetic, <span class="hits">complex</span>, medieval</p>
                                     <p>Predicted publication date: 1983, 1980, 1969, <strong>1972</strong>, 2005, 1995, 1976</p>
                                    <p>Sentimental analysys scores:</p>
                                     <p><span class="Positive">Positive (0%)</span>, <span class="Neutral">Neutral (80%)</span>, <span class="Negative">Negative (20%)</span></p>

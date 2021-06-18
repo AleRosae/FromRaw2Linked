@@ -56,7 +56,7 @@
 
                         <img src="assets/img/rymalbum.png" class="img-fluid">
 
-                        <p class="text-muted">Then a simple and <strong>small ontology</strong> was developed using <strong>Protegé</strong> as a software. The ontology, which serves as a conceptual model, links an album record with its main properties, namely the artist that made the record, its main genre, its secondary genre, some descriptors and so on. Moreover, since one of the goal was also to <strong>align the dataset with Wikidata</strong>, the artist subclasses was subdivided in two different classes, i.e. humans (songwriters, performers, musicians, etc.) and musical groups. Those subclasses have properties as well, such as a birthplace for humans, a list of members for bands and so on. The list of properties for artists was completely arbitrary and it can be extended any time. You can download the Protegé file <a href="data/RymOntology.owl" download="">here</a>.</p>
+                        <p class="text-muted">Then a simple and <strong>small ontology</strong> was developed using <strong>Protegé</strong> as a software. The ontology, which serves as a conceptual model, links an album record with its main properties, namely the artist that made the record, its main genre, its secondary genre, some descriptors and so on. I decided to implement my own ontology for the work in order to maintein the maximum flexibility; however, it could be useful and interesting to exploit already existing ontologies that deal with musical entities. Moreover, since one of the goal was also to <strong>align the dataset with Wikidata</strong>, the artist subclasses was subdivided in two different classes, i.e. humans (songwriters, performers, musicians, etc.) and musical groups. Those subclasses have properties as well, such as a birthplace for humans, a list of members for bands and so on. The list of properties for artists was completely arbitrary and it can be extended any time. You can download the Protegé file <a href="data/RymOntology.owl" download="">here</a>.</p>
 
                         <p class="text-muted">From a practical point of view,<strong>Python</strong> was used in order to exploit the vast amount of libraries available for handling large datasets. Pandas was used to give a first look at the data, cleaning it a bit, eliminating duplicates and getting rid of some unnecessary properties. It was also important to align the entries with the already existing entries of a linked open dataset, such as DBPedia or Wikidata. Thus, a set of functions able to <strong>automatically extract information</strong> about a specific entity (using a SPARQL query) and put them in the main dataset were developed. Once the dataset was aligned (in this case with Wikidata), it became possible to serialize it as subject-predicate-object triples. Using an RDF library, it became possible to create a set of triples that linked every musical entity with its properties. Here you can see an example extracted from the graph using the Turtle syntax:</p>
 
@@ -64,7 +64,7 @@
 
                         <p class="text-muted">With the Turtle file, it became possible to make some experiment with graph embedding. For this task, two Python libraries were individuated:<a href="https://pykeen.readthedocs.io/en/stable/" target="blank">Pykeen</a> and <a href="http://rdf2vec.org/" target="blank">RDF2Vec</a>. However, after an initial phase of testing, RDF2Vec was discarded due to the difficulties related to set up a proper work environment. Moreover, Pykeen offers a built-in function for <strong>link prediction</strong>, thus being much easier to set up for whom do not have prior knowledge in machine learning. For the training phase the dataset was automatically splatted in two (with a 80/20 proportion) and fed to the pipeline function without changing any of the default settings (except with the epoch number, which was set at 1500). You can download the results of the training <a href="data/pykeen result/results.json" download="">here</a>.</p>
 
-                        <p class="text-muted">Finally, in order to get a more complete account of each record, a simple implementation of the <a href="https://www.nltk.org/" target="blank">nltk</a> library was developed. This allows to get sentimental score (i.e. a positive, a neutral and a negative one) of each album based on the range of the descriptors. </p>
+                        <p class="text-muted">Finally, in order to get a more complete account of each record, a simple implementation of the <a href="https://www.nltk.org/" target="blank">nltk</a> library was developed. This allows to get sentiment score (i.e. a positive, a neutral and a negative one) of each album based on the range of the descriptors. This score should represent the "mood" of the record, and it is not intended to express the value or the quality of it. For instance, a record could be labelled as mainly negative because its descriptors list includes terms such as "depressive", "melancholic" and so on. As it is often the case with the arts, negative feelings can be exploited to discuss important topics (e.g. depression) or to get rid of them. </p>
                         <p>All the data, including code and the trained model, can be found at the <a href="https://github.com/AleRosae/FromRaw2Linked" target="blank"> GitHub repository</a>.</p>
 
 
@@ -114,7 +114,7 @@
                             <div class="timeline-heading">
                                 <h4>Graph Embedding</h4>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Once the linked dataset was built, it became possible to do some interesting operations on it. Pykeen was used as a library to create a graph embedding of the dataset. In order to exploit the Pykeen functionalities, the graph was converted into a <a href="data/final_dataset.tsv" download="">tabular file</a>, each row representing a triple. This allowed to perform many significant operations on the data, such as link prediction i.e. to predict the probabilities that a link between two nodes occurs. A simple and basic sentimental analysis based on the album descriptors was also implemented using <a href="https://www.nltk.org/" target="blank">nltk</a>.</p></div>
+                            <div class="timeline-body"><p class="text-muted">Once the linked dataset was built, it became possible to do some interesting operations on it. Pykeen was used as a library to create a graph embedding of the dataset. In order to exploit the Pykeen functionalities, the graph was converted into a <a href="data/final_dataset.tsv" download="">tabular file</a>, each row representing a triple. This allowed to perform many significant operations on the data, such as link prediction i.e. to predict the probabilities that a link between two nodes occurs. A simple and basic sentiment analysis based on the album descriptors was also implemented using <a href="https://www.nltk.org/" target="blank">nltk</a>.</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
@@ -379,7 +379,7 @@
                                     <p>Predicted secondary genres: Experimental Rock, Post-Punk, <span class="hits">Art-Rock</span>, Gothic Rock, Art-Punk, Noise-Rock, Neo-Psychedelia, Dark Cabaret, Rock Opera, New Wave, Industrial Rock, Stoner Rock, Krautrock, Lo-Fi/Slacker Rock, Zolo</p>
                                     <p>Predicted descriptors: philosophical, <strong>anxious</strong>, <strong>alienation</strong>, suicide, psychedelic, <span class="hits">existential</span>, apathetic, <span class="hits">depressive</span>, <span class="hits">pessimistic</span>, lo-fi, raw, <span class="hits">male vocals</span>, sombre, self-hatred, energetic, ecletic, death, concept album, cryptic</p>
                                     <p>Predicted publication date: 2006, <span class="hits">1997</span>, 2002, 2019, 1981, 1995, 1994</p>
-                                    <p>Sentimental analysys scores:</p>
+                                    <p>sentiment analysis scores:</p>
                                     <p><span class="Positive">Positive (10%)</span>, <span class="Neutral">Neutral (30%)</span>, <span class="Negative">Negative (60%)</span></p>
                                     <div id="OKPC"></div>
 
@@ -413,7 +413,7 @@
                                     <p>Predicted secondary genres: <strong>Dream Pop</strong>, <span class="hits">Noise-Pop</span>, Midwest Emo, <span class="hits">Shoegaze</span>, Indietronica, Indie Rock, Neo-Psychedelia, Ethereal Wave, Lo-Fi/Slacker Rock, Indie Pop, Darkwave, Slowcore, Synthpop, Alternative Rock, Post-Punk Revival</p>
                                     <p>Predicted descriptors: sad, apathetic, existential, poetic, <span class="hits">melancholic</span>, lonely, depressive, anxious, <span class="hits">psychedelic</span>, ecletic, <span class="hits">bittersweet</span>, introspective, quirky, <strong>wall of sound</strong></p>
                                     <p>Predicted publication date: 1998, 2015, 2011, 1996, 2003, 2020, 1999, 1990, <strong>1991</strong>, 2002</p>
-                                    <p>Sentimental analysys scores:</p>
+                                    <p>sentiment analysis scores:</p>
                                     <p><span class="Positive">Positive (0%)</span>, <span class="Neutral">Neutral (40%)</span>, <span class="Negative">Negative (60%)</span></p>
                                     <div id="Loveless"></div>                                   
 
@@ -446,7 +446,7 @@
                                     <p>Predicted secondary genres: <span class="hits">Art Pop</span>, Dark Cabaret, Gothic Country, Trip Hop, <strong>Chamber pop</strong>, Art Rock, Ledemacher, Indie Folk, Acoustic Rock, Ambient Pop, New Wave, Freak Folk, Neo Psychedelia</p>
                                     <p>Predicted descriptors: sad, lonely, poetic, <span class="hits">melancholic</span>, <span class="hits">bittersweet</span>, melodic, <span class="hits">ecletic</span>, <strong>introspective</strong>, nocturnal, playful, <span class="hits">existential</span>, quirky, protest, <strong>anxious</strong>, longing</p>
                                     <p>Predicted publication date: 1988, 2003, 1996, 2016, 2012, 1983</p>
-                                    <p>Sentimental analysys scores:</p>
+                                    <p>sentiment analysis scores:</p>
                                     <p><span class="Positive">Positive (20%)</span>, <span class="Neutral">Neutral (30%)</span>, <span class="Negative">Negative (50%)</span></p>
                                     <div id="Adz"></div>                                            
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
@@ -565,7 +565,7 @@
                                     <p>Predicted main genres: Field Recording, Nature Recording, Musique Concrete, Electroacoustic, <span class="hits">Ambient</span>, Dark Ambient, Drone, Tribal Ambient, <strong>Tape Music</strong>, Experimental, Space Ambient </p>
                                     <p>Predicted secondary genres: Electrouacustic, Musique concrete, Field Recording, Tribal Ambient, Ambient, Progressive Electronic, Dark Ambient, <strong>Drone</strong>, <span class="hits">Minimalism</span>, Tape Music, Horror Synth</p>
                                     <p>Predicted descriptors: <span class="hits">meditative</span>, suspenseful, <strong>minimalistic</strong>, atonal, sterious, dissonant, <strong>atmospheric</strong>, <strong>sparse</strong>, <span class="hits">avant-garde</span>, scary, tribal, <strong>repetitive</strong>, <span class="hits">hypnotic</span>, acquatic, microtonal</p>
-                                    <p>Sentimental analisys scores:</p>
+                                    <p>sentiment analysis scores:</p>
                                     <p><span class="Positive">Positive (20%)</span>, <span class="Neutral">Neutral (60%)</span>, <span class="Negative">Negative (20%)</span></p>
                                     <div id="Loops"></div>                                       
                                     <p>Predicted publication date: 2020, 2014, <strong>2002</strong>, 2010, 1995, 2003, 2007, 1999, 2011</p>
@@ -597,7 +597,7 @@
                                     <p>Predicted secondary genres: Techno, Breakbeat, IDM, Drum and Bass, <strong>Wonky</strong>, Illbient, Synthwave, UK Bass, Trip Hop, Acid Techno, Downtempo, Electronic Dance, Post Industrial, Atmospheric Electronic, Electronic</p>
                                     <p>Predicted descriptors: repetitive, <span class="hits">futuristic</span>, <span class="hits">abstract</span>, nocturnal, <strong>mechanical</strong>, <span class="hits">androgynous vocals</span>, minimalistic,<span class="hits"> atmospheric</span>, <span class="hits">anxious</span>, ecletic, lo-fi, sampling, <strong>LGBT</strong>, disturbing</p>
                                     <p>Predicted publication date: 2021, 2021, 2019, 1998, 2020, 1988, 2015, <span class="hits">2018</span>, 2000</p>
-                                    <p>Sentimental analysys scores:</p>
+                                    <p>sentiment analysis scores:</p>
                                     <p><span class="Positive">Positive (0%)</span>, <span class="Neutral">Neutral (60%)</span>, <span class="Negative">Negative (40%)</span></p>
                                     <div id="Oil"></div>  
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
@@ -629,7 +629,7 @@
                                     <p>Predicted secondary genres: Freak Folk, Jam Band, Canterbury S, <span class="hits">Progressive Rock</span>, Blues Rock, MPB, Tropicalia, Jazz Rock, Latin Rock, Poezja-śpiewana, Forrò, Acid Rock, Frevo </p>
                                     <p>Predicted descriptors: psychedelic, philosophical, sombre, nature, occult, uncommon time signatures, <strong>progressive</strong>, alienation, space, anxious, poetic, <span class="hits">complex</span>, medieval</p>
                                     <p>Predicted publication date: 1983, 1980, 1969, <strong>1972</strong>, 2005, 1995, 1976</p>
-                                   <p>Sentimental analysys scores:</p>
+                                   <p>sentiment analysis scores:</p>
                                     <p><span class="Positive">Positive (0%)</span>, <span class="Neutral">Neutral (80%)</span>, <span class="Negative">Negative (20%)</span></p>
                                     <div id="Banco"></div>  
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
